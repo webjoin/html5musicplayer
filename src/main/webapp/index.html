@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/portrait.css" rel="stylesheet" type="text/css"/>
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+     <!-- <script type="text/javascript" src="/Users/Elijah/Documents/cordova-workspace/Any800/platforms/ios/www/js/jquery-1.8.2.min.js"></script> -->
+      <script src="js/custom.js"></script>
+      <script src="js/elijah.js"></script>
+    <title>music-player</title>
+</head>
+<body style="">
+    <div class="play-box" id="index_page">
+        <div class="play-box-left">
+            <div class="play-logo">
+                LOGO  <div style="font-size:14px">
+                         <input type="text" id="getUrl"  name="" value="" placeholder="输入URL后失去焦点" style="width:300px; height:30px;">
+                        <script type="text/javascript">
+                        function callback1(a){
+                            //alert(a.add);
+                            console.log(a);
+                        }
+                                $(function(){
+
+                                    $('#getUrl').change(function(){
+                                       var url1 = $(this).val()+"?callback=?";
+                                       //url='http://www.baidu.com'
+                                       //debugger;
+
+                                       //var obj1 = {u:main.u,status:status};
+                                        var chatStatusSwitchObj = {
+                                              url:url1,
+                                             jsonpCallback:'callback1',
+                                              crossDomain:true,
+                                               timeout: 5000,
+                                              dataType: "jsonp",
+                                              success:function(xhr){ //{f:true,m:'-----'}
+                                                    console.log('success') ;
+                                                    //eval(xhr.responseText);
+                                              },
+                                              error:function(a , b ,c,d,ee){
+                                                    console.log('error') ;
+                                    //                monitorReq();
+                                              },
+                                              complete: function(data) {
+                                                    console.log('complete')
+                                              },
+                                              statusCode:{
+                                                    404: function() {
+                                                      alert( "The page not found" );
+                                                    }
+                                              }
+                                      };
+                                       $.ajax(chatStatusSwitchObj);
+
+                                    })
+
+
+                                })
+                        </script>
+                </div>
+            </div>
+            <div class="play-version">
+                <p>固件版本:IOS9.1Beta3</p>
+            </div>
+        </div>
+        <div class="play-main-panel play-main-panel-index">
+            <div class="play-power">
+                <span class="off"></span>
+                <p>已关闭</p>
+            </div>
+            <div class="play-menu" id="boaniu">
+                <span class=""></span>
+                <p>播放菜单</p>
+            </div>
+            <div class="play-setting" id="setaniu">
+                <span class="off"></span>
+                <p>播放设置</p>
+            </div>
+            <div class="play-volume" id="setvolaniu">
+                <span class="off"></span>
+                <p>调音设置</p>
+            </div>
+        </div>
+
+    </div>
+<div class="nav">
+    <span class="prev-btn" onclick="window.location.href=document.referrer;"></span>
+    <!--<span class="next-btn"></span>-->
+    <span class="home-btn" onclick="window.location.href='index.html';"></span>
+    <span class="playing" onclick="window.location.href='play.html';"></span>
+</div>
+ <div class="play-box" style="display:none;" id="bofangpage">
+        <div class="play-box-left play-box-left-paly-menu">
+            <div class="play-logo">
+                LOGO
+            </div>
+            <div class="play-version">
+                <p>固件版本:IOS9.1Beta3</p>
+            </div>
+        </div>
+        <div class="play-main-panel play-main-panel-play-menu">
+            <div class="play-menu-btn">
+                <span class="label"></span>
+                <span class="btn" onclick="window.location.href='play-sdcard-1.html';">SD1</span>
+            </div>
+            <div class="play-menu-btn">
+                <span class="label"></span>
+                <span class="btn" onclick="window.location.href='play-sdcard-2.html';">SD2</span>
+            </div>
+            <div class="play-memu-btn">
+                <span class="label"></span>
+                <span class="btn" id="lanya">蓝牙</span>
+            </div>
+            <div class="play-memu-btn">
+                <span class="label"></span>
+                <span class="btn" id="guanqiananiu">光纤</span>
+            </div>
+            <div class="play-memu-btn">
+                <span class="label"></span>
+                <span class="btn" id="setvol2">调音设置</span>
+            </div>
+            <div class="play-memu-btn">
+                <span class="label"></span>
+                <span class="btn" onclick="window.location.href=document.referrer;">返回</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="play-box play-box-left-paly-setting" style="display:none;" id="setpage">
+        <div class="play-box-left">
+            <div class="play-logo">
+                LOGO d
+            </div>
+            <div class="play-version">
+                <p>固件版本:IOS9.1Beta3</p>
+            </div>
+        </div>
+        <div class="play-main-panel play-main-panel-play-setting">
+            <div class="play-setting-btn">
+                <span class="label">语言</span>
+                <span class="btn" id='CHINESEBtn'>中文</span>
+            </div>
+            <div class="play-setting-btn">
+                <span class="label">循环</span>
+                <span class="btn" id = 'CYCLEBtn'>单一专辑</span>
+            </div>
+            <div class="play-setting-btn play-setting-btn-c">
+                <span class="btn" onclick="window.location.href=document.referrer;">返回</span>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="play-box" style="display:none;" id="setvol">
+        <div class="play-box-setting-volume">
+            <div class="setting-volume">
+                <div class="setting-volume-logo"><p>logo</p></div>
+                <div class="setting-volume-system"><p>system select</p></div>
+            </div>
+            <div class="volume-btn">
+                <span class="full" onclick="window.location.href='split-screen-network.html';">Full</span>
+                <span class="multi">Multi</span>
+            </div>
+            <div class="volume-panel">
+                <div class="volume-left">
+                    <span class="fl-tw">FL TW <i></i></span>
+                    <span class="fl-mid">FL MID <i></i></span>
+                    <span class="fl-wf"> FL WF <i></i></span>
+                </div>
+                <div class="volume-middle"></div>
+                <div class="volume-right">
+                    <span class="fr-tw">FR TW <i></i></span>
+                    <span class="fr-mid">FR MID <i></i></span>
+                    <span class="fr-wf"> FR WF <i></i></span>
+                </div>
+                <div class="volume-mono">
+                    <span class="subw1">SUBW.1<i></i></span>
+                    <div class="mono-btn"><span>MONO</span></div>
+                    <span class="subw2">SUBW.2<i></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="play-main-panel-setting-volume">
+            <div class="play-main-panel-setting-volume-top">
+                <div class="sound-manager">
+                    Moblie Sound Manager
+                </div>
+                <div class="sound-manager-btn">
+                    <span class="btn" onclick="window.location.href=document.referrer;">Return</span>
+                    <span class="btn">Crossover</span>
+                </div>
+                <div class="sound-manager-btn">
+                    <div class="switch">
+                        <span class="sound-manager-on">OFF</span>
+                        <span class="sound-manager-off">ON</span>
+                    </div>
+                    <div class="switch switch-c">
+                        <span class="sound-manager-on">ON</span>
+                        <span class="sound-manager-off">OFF</span>
+                    </div>
+                    <div class="switch-cc">
+                        <span class="btn btn1">Time Correction</span>
+                        <span class="btn btn2">Equalizer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="play-main-panel-setting-volume-middle">
+                <div class="play-main-panel-setting-volume-middle-btn">
+                    <div class="sound-manager">
+                        Preset Manager
+                    </div>
+                    <span class="btn" id='presetBtn1'>1</span>
+                    <span class="btn" id='presetBtn2'>2</span>
+                    <span class="btn" id='presetBtn3'>3</span>
+                    <span class="btn" id='presetBtn4'>4</span>
+                    <span class="btn" id='presetBtn5'>5</span>
+                </div>
+            </div>
+            <div class="play-main-panel-setting-volume-bottom">
+                <span class="btn" id="reset">Reset</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="confirm-layout">
+        <p>是否更改设置</p>
+        <div class="confirm-btn">
+            <span class="btn" id="confirm">确认</span>
+            <span class="btn" id="cancel">取消</span>
+        </div>
+    </div>
+    <!--蓝牙-->
+    
+     <div class="play-box" style="display:none;" id="lanyapage">
+        <div class="play-box-left play-box-left-paly-bluetooth">
+            <div class="play-logo">
+                LOGO ds
+            </div>
+            <div class="play-version">
+                <p>固件版本:IOS9.1Beta3</p>
+            </div>
+        </div>
+        <div class="play-main-panel play-main-panel-play-bluetooth">
+            <div class="play-bluetooth-btn">
+                <div class="bluetooth-box">蓝牙</div>
+                <span class="label label-bluetooth"></span>
+                <span class="btn" id="setvol2s">调音设置</span>
+            </div>
+            <div class="play-bluetooth-btn">
+                <span class="label label-bluetooth"></span>
+                <span class="btn" >静音</span>
+            </div>
+            <div class="play-bluetooth-btn">
+                <span class="label label-bluetooth"></span>
+                <span class="btn" onclick="window.location.href=document.referrer;">返回</span>
+            </div>
+        </div>
+        <div class="bluetooth-volume">
+            <p class="vol-label">Vol</p>
+            <span class="addVulume"></span>
+            <span class="reduceVolume"></span>
+        </div>
+    </div>
+    <!--光纤-->
+     <div class="play-box"  style="display:none;" id="guanqianpage">
+        <div class="play-box-left play-box-left-paly-wan">
+            <div class="play-logo">
+                LOGO dds
+            </div> 
+            <div class="play-version">
+                <p>固件版本:IOS9.1Beta3</p>
+            </div>
+        </div>
+        <div class="play-main-panel play-main-panel-play-wan c-1">
+            <div class="play-wan-btn">
+                <div class="wan-box c-2">光纤</div>
+                <span class="label label-wan"></span>
+                <span class="btn"  id="setvole3">调音设置</span>
+            </div>
+            <div class="play-wan-btn">
+                <span class="label label-wan"></span>
+                <span class="btn">静音</span>
+            </div>
+            <div class="play-wan-btn">
+                <span class="label label-wan"></span>
+                <span class="btn" onclick="window.location.href=document.referrer;">返回</span>
+            </div>
+        </div>
+        <div class="wan-volume">
+            <p class="vol-label">Vol</p>
+            <span class="addVulume"></span>
+            <span class="reduceVolume"></span>
+        </div>
+    </div>
+</body>
+</html>

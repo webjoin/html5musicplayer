@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/portrait.css" rel="stylesheet" type="text/css"/>
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/lib/Chart.js"></script>
+    <title>music-player</title>
+</head>
+<script type="text/javascript">
+    $(function () {
+        $('#container1').highcharts({
+            xAxis: {
+                title: {
+                    text: '[Hz]'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: '[dB]'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            chart :{
+                    fontSize:'14px',
+                    fontWeight:'bold',
+                    color:'#fff',
+                    backgroundColor:'rgba(52, 52, 52,0.5)'
+                },
+            credits:{
+                enabled:false
+            },
+            legend:{
+                enabled:false
+            },
+            exporting:{
+                enabled:false
+            },
+            title: {
+                text: '',
+            },
+            subtitle: {
+                text: '',
+            },
+            tooltip:{
+                enabled:false
+            },
+            series: [{
+                name: 'Tokyo',
+                marker: {
+                    fillColor: '#BF0B23',
+                    lineWidth:10,
+                    radius: 0
+                },
+                data: [9, 9, 4, -1, -6, -11,]
+            }, {
+                name: 'New York',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12],
+            }, {
+                name: 'Berlin',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -12, -12, -7,-12, -4, 4, 9, 9, 4, -4, -12]
+            }, {
+                name: 'London',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
+            }]
+        });
+        $('#container2').highcharts({
+            xAxis: {
+                title: {
+                    text: '[Hz]'
+                },
+            },
+            yAxis: {
+                title: {
+                    text: '[dB]'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            chart :{
+                fontSize:'14px',
+                fontWeight:'bold',
+                color:'#fff',
+                backgroundColor:'rgba(52, 52, 52,0.5)'
+            },
+            credits:{
+                enabled:false
+            },
+            legend:{
+                enabled:false
+            },
+            exporting:{
+                enabled:false
+            },
+            title: {
+                text: '',
+            },
+            subtitle: {
+                text: '',
+            },
+            tooltip:{
+                enabled:false
+            },
+            series: [{
+                name: 'Tokyo',
+                marker: {
+                    fillColor: '#BF0B23',
+                    lineWidth:10,
+                    radius: 0
+                },
+                data: [9, 9, 4, -1, -6, -11,]
+            }, {
+                name: 'New York',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -4, 4, 9, 9, 4, -4, -12]
+            }, {
+                name: 'Berlin',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12]
+            }, {
+                name: 'London',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
+            }]
+        });
+    });
+</script>
+<script src="js/lib/highcharts.js"></script>
+<script src="js/lib/exporting.js"></script>
+<script src="js/lib/dark-unica.js"></script>
+<body style="">
+    <div class="play-box">
+        <div class="split-left">
+            <div class="split-left-btn">
+                <span class="btn">L ch</span>
+                <span class="btn">L=R</span>
+                <span class="btn">R ch</span>
+            </div>
+            <div class="split-title"><p>Preset Manager</p></div>
+        </div>
+        <div class="split-middle">
+            <div class="split-middle-Lch-box">
+                <div class="split-middle-Lch-box-content">
+                    <div id="container1" style="width: 100%; height: 216px; margin: 0 auto"></div>
+                </div>
+            </div>
+            <div class="split-middle-Rch-box">
+                <div id="container2" style="width: 100%; height: 216px; margin: 0 auto"></div>
+            </div>
+            <div class="split-middle-box1">
+                <div class="split-middle-box1-left">
+                    <div class="split-middle-btn">
+                        <span class="label-btn">slope</span>
+                        <span class="btn">-6dB/0ct</span>
+                    </div>
+                    <div class="split-middle-btn">
+                        <span class="label-btn">Frequency</span>
+                        <span class="btn">100Hz</span>
+                    </div>
+                </div>
+                <div class="split-middle-box1-middle">
+                    <div class="split-middle-btn">
+                        <span class="label-btn">Frequency</span>
+                        <span class="btn">20KHz</span>
+                    </div>
+                    <div class="split-middle-btn">
+                        <span class="label-btn">slope</span>
+                        <span class="btn">-6dB/0ct</span>
+                    </div>
+                </div>
+                <div class="split-middle-box1-right">
+                    <div class="split-middle-btn">
+                        <span class="label-btn">Level</span>
+                        <span class="btn">0 dB</span>
+                    </div>
+                    <div class="split-middle-btn">
+                        <span class="label-btn">Phase</span>
+                        <span class="btn btn3">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="split-middle-box2">
+                <span class="btn">1</span>
+                <span class="btn">2</span>
+                <span class="btn">3</span>
+                <span class="btn">4</span>
+                <span class="btn">5</span>
+                <span class="btn btn-reset">Reset</span>
+            </div>
+        </div>
+        <div class="split-right">
+            <div class="split-right-btn">
+                <span class="btn" onclick="window.location.href=document.referrer;">Return</span>
+                <span class="btn">FrontTW</span>
+                <span class="btn">FrontMid</span>
+                <span class="btn">FrontWF</span>
+                <span class="btn">Subwoofer</span>
+            </div>
+            <div class="wan-volume split-right-volume">
+                <span class="addVulume"></span>
+                <span class="reduceVolume"></span>
+            </div>
+            <div class="mute">
+                <span class="btn">Mute</span>
+            </div>
+        </div>
+    </div>
+    <div class="confirm-layout">
+        <p>是否更改设置</p>
+        <div class="confirm-btn">
+            <span class="btn" id="confirm">确认</span>
+            <span class="btn" id="cancel">取消</span>
+        </div>
+    </div>
+    <div class="nav">
+        <span class="prev-btn" onclick="window.location.href=document.referrer;"></span>
+        <!--<span class="next-btn"></span>-->
+        <span class="home-btn" onclick="window.location.href='index.html';"></span>
+        <span class="playing" onclick="window.location.href='play.html';"></span>
+    </div>
+</body>
+</html>

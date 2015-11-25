@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+  <title>Music Player</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel=”shortcut icon” href=”favicon.ico”  type=”image/x-icon”>
+  <link rel=”icon” href=”favicon.ico” type=”image/x-icon”>
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css">
+  <link rel="stylesheet" type="text/css" href="css/jQMProgressBar.css" />
+  <script src="javascript/jquery-1.11.1.min.js"></script>
+  <script src="javascript/jquery.mobile-1.4.3.min.js"></script>
+  <script src="javascript/jQMProgressBar.js"></script>
+  <script src="javascript/myscript.js" charset="GB2312"></script>
+  	
+</head>
+<body>
+<div data-role="page" id="startpage" >
+ 
+  <div data-role="header">
+    <h1 id="MusicPlayer">Music Player</h1><a href="#page3" data-icon="gear" class="ui-btn-right"id="setuplink">Setup</a>
+  </div><!-- /header 1 -->
+
+  
+  <div data-role="content" >
+  <!--
+  <table data-role="table" class="ui-responsive table-stroke">
+				<thead>
+				  <tr> <th> INFO </th> <th>  </th>  </tr>
+				</thead>
+				<tbody>
+				<tr> <th> Name </th> <th id="name"> china </th> </tr>
+				  <tr> <th> Bps </th> <th id="bps"> 24 </th> </tr>
+				  <tr> <th> Frequency </th> <th id="freq"> 44100 </th> </tr>
+				  <tr> <th> Time </th> <th id="time"> 44100 </th> </tr>
+				</tbody>
+			</table>
+  -->
+    <ul data-role="listview" data-inset="true">
+		<li id="track">Can't connect the digital player  </li>
+		<li id="trackinfo">Please check the network </li>
+		<li><div id="progressbar"></div>  </li>
+	</ul>
+	
+	<div data-role="navbar">
+      <ul>
+        <li><a id="previous" data-role="button" href="#"> <img src="images/previous8.png"></a></li>
+		 <li><a id="play" href="#"> <img src="images/play8.png"></a></li>
+		<li><a id="next" href="#"> <img src="images/next8.png"></a></li>
+      </ul>
+<!--	
+	<ul>
+		<li><label>Random:</label>
+				<select data-role="slider"> <option value="off">Off</option><option value="on">On</option></select>
+		</li>
+		<li><a id="refreshplaylist" href="javascript:$.refreshlist()">Refresh PlayList</a></li>
+	  </ul>
+    
+-->		
+	</div>
+<!--	
+	<div data-role="content">
+		<ul id="playlist" data-role="listview" data-inset="true" data-split-icon="delete">
+		
+			<li><a href="#">No Conternt</a></li>
+		</ul>
+	</div>
+-->
+	
+</div>
+	
+<div data-role="footer" data-position="fixed">
+    
+	<div data-role="navbar">
+		<ul>
+			<li><a href="#startpage" class="ui-btn-active" id="homelink1">Home</a></li>
+			
+			<li><a href="#page2" onclick="$.goCurrentdir()" id="playlink1">PlayList<span id="tracknumber" class="ui-li-count">12</span></a></li>
+		</ul>
+	</div>
+  </div>
+</div><!-- /page 1 -->
+
+<div data-role="page" id="page2" >
+ 
+  <div data-role="header">
+    <h1 id="playheader">Play List</h1>
+  </div><!-- /header 1 -->
+
+  <div data-role="content" >
+    <ul id="filelist" data-role="listview" data-inset="true" data-split-icon="plus">
+		<li><a href="#">Acura</a></li>
+		<li><a href="#">Audi</a></li>
+		<li><a href="#">BMW</a></li>
+		<li><a href="#">Cadillac</a></li>
+		<li><a href="#">Ferrari</a></li>
+	</ul>
+     
+  </div><!-- /content 1 -->
+	
+<div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+		<ul>
+			<li><a href="#startpage" id="homelink2">Home</a></li>
+			
+			<li><a href="#" onclick="$.goRootdir()" id="rootlink">RootDir</a></li>
+		</ul>
+	</div>
+  </div>
+</div><!-- /page 2 -->
+
+<div data-role="page" id="page3" >
+ 
+  <div data-role="header">
+    <h1 id="SetupInfo">Setup Info</h1>
+  </div><!-- /header 1 -->
+
+  <div data-role="content" >
+    
+<div data-role="controlgroup">
+    <ul>
+	<li><label id="versionlink">version</label></li>
+    <li><input id="version" disabled="disabled" value="1.1"></li>
+    <li><label id="ipaddrlink">ip address</label></li>
+    <li><input id="ipaddr" value="192.168.1.188"></li>
+    <li><label id="netmasklink">ip network mask</label></li>
+    <li><input id="netmask" value="255.255.255.0"></li>
+	<li><label id="gatewaylink">ip gateway</label></li>
+    <li><input id="gateway" value="192.168.1.1"></li>
+	<li><label id="nfslable">NFS Link</label></li>
+	<li><input id="nfslink" value="192.168.1.189:/"></li>			
+			<!--<form>
+				<div class="ui-field-contain">
+			        <label for="flip-6">NFS Enable:</label>
+			        <select name="flip-6" id="nfsflip" data-role="flipswitch">
+			            <option value="off">Off</option>
+			            <option value="on">On</option>
+			        </select>
+			    </div>
+			</form> -->
+	<form>  
+		<fieldset data-role="controlgroup">
+			<legend>NFS State</legend>
+			<input type="radio" name="radio-nfs" id="nfs_on" value="on" >
+			<label for="nfs_on">On</label>
+			<input type="radio" name="radio-nfs" id="nfs_off" value="off" checked="checked">
+			<label for="nfs_off">Off</label>
+			
+		</fieldset>
+	</form>		
+	<form>
+		<fieldset data-role="controlgroup">
+			<legend>language/语言</legend>
+			<input type="radio" name="radio-lang" id="lang_en" value="en" checked="checked">
+			<label for="lang_en">English</label>
+			<input type="radio" name="radio-lang" id="lang_zh" value="zh">
+			<label for="lang_zh">中文</label>
+			
+		</fieldset>
+	</form>
+	<div data-role="navbar">
+		<ul>
+			<li><button  class="ui-btn" id="update">Updatae Hardware</button></a></li>
+			<li><button  class="ui-btn" id="ipchange">Change IP</button></a></li>
+			
+		</ul>
+	</div>
+</ul>
+</div>
+
+
+
+	
+	<!--  
+	<div data-role="controlgroup">
+		<ul>
+			<li><label id="nfslable">NFS Link</label></li>
+				<li><input id="nfslink" value="192.168.1.189"></li>			
+			<form>
+				<div class="ui-field-contain">
+			        <label for="flip-6">NFS Enable:</label>
+			        <select name="flip-6" id="nfsflip" data-role="flipswitch">
+			            <option value="off">Off</option>
+			            <option value="on">On</option>
+			        </select>
+			    </div>
+			</form>
+			<li><button  class="ui-btn" id="nfschg">Chang NFS Setup</button></li>
+		</ul>
+	</div>
+     -->
+  </div><!-- /content 1 -->
+	
+<div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+		<ul>
+			<li><a href="#startpage" id="homelink3">Home</a></li>
+			
+			<li><a href="#page2" id="playlink2">PlayList</a></li>
+		</ul>
+	</div>
+  </div>
+</div><!-- /page 3 -->
+
+</body>
+</html>

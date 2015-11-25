@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/portrait.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <title>music-player</title>
+</head>
+<body style="">
+    <div class="play-box">
+        <div class="sd-card">
+            <div class="song-sd-card"><p>歌曲目录</p></div>
+            <div class="sd-card-content">
+                <div class="sd-card-panel">
+                    <div class="col-sm-4 pama">
+                        <div id="treeview1" class="sd-card-tree"></div>
+                    </div>
+                </div>
+                <div class="sd-card-select"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav nav-sd">
+        <span class="prev-btn" onclick="window.location.href=document.referrer;"></span>
+        <!--<span class="next-btn"></span>-->
+        <span class="home-btn" onclick="window.location.href='index.html';"></span>
+        <span class="playing" onclick="window.location.href='play.html';"></span>
+    </div>
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/lib/bootstrap-treeview.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+
+            var defaultData = [
+                {
+                    text: 'SD2',
+                    href: '#parent1',
+                    tags: ['4'],
+                    nodes: [
+                        {
+                            text: '母带',
+                            href: '#child1',
+                            tags: ['2'],
+                            nodes: [
+                                {
+                                    text: '蔡琴',
+                                    href: '#child2',
+                                    tags: ['0'],
+                                    nodes: [
+                                        {
+                                            text: '民歌才情',
+                                            href: '#child3',
+                                            tags: ['2'],
+                                            nodes: [
+                                                {
+                                                    text: 'Child 4',
+                                                    href: '#child4',
+                                                    tags: ['0']
+                                                },
+                                                {
+                                                    text: 'Grandchild 2',
+                                                    href: '#grandchild2',
+                                                    tags: ['0']
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: '意乱蔡琴',
+                                            href: '#child3',
+                                            tags: ['2'],
+                                            nodes: [
+                                                {
+                                                    text: 'Child 4',
+                                                    href: '#child4',
+                                                    tags: ['0']
+                                                },
+                                                {
+                                                    text: 'Grandchild 2',
+                                                    href: '#grandchild2',
+                                                    tags: ['0']
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: '不了请',
+                                            href: '#child3',
+                                            tags: ['2'],
+                                            nodes: [
+                                                {
+                                                    text: 'Child 4',
+                                                    href: '#child4',
+                                                    tags: ['0']
+                                                },
+                                                {
+                                                    text: 'Grandchild 2',
+                                                    href: '#grandchild2',
+                                                    tags: ['0']
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: 'Child 2',
+                                            href: '#child2',
+                                            tags: ['0']
+                                        }
+                                    ]
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                }
+                            ]
+                        },
+                        {
+                            text: '经典',
+                            href: '#child1',
+                            tags: ['0'],
+                            nodes: [
+                                {
+                                    text: 'Child 2',
+                                    href: '#child2',
+                                    tags: ['0'],
+                                    nodes: [
+                                        {
+                                            text: 'Child 3',
+                                            href: '#child3',
+                                            tags: ['2'],
+                                            nodes: [
+                                                {
+                                                    text: 'Child 4',
+                                                    href: '#child4',
+                                                    tags: ['0']
+                                                },
+                                                {
+                                                    text: 'Grandchild 2',
+                                                    href: '#grandchild2',
+                                                    tags: ['0']
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: 'Child 2',
+                                            href: '#child2',
+                                            tags: ['0']
+                                        }
+                                    ]
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                },
+                                {
+                                    text: 'Grandchild 2',
+                                    href: '#grandchild2',
+                                    tags: ['0']
+                                }
+                            ]
+                        },
+                        {
+                            text: '怀旧',
+                            href: '#grandchild2',
+                            tags: ['0']
+                        }
+                    ]
+                },
+            ];
+
+            $('#treeview1').treeview({
+                data: defaultData
+            });
+        });
+    </script>
+</body>
+</html>

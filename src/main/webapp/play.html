@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/portrait.css" rel="stylesheet" type="text/css"/>
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/custom.js"></script>
+    <title>music-player</title>
+</head>
+<body style="">
+    <div class="play-box">
+        <div class="play-top">
+            <div class="album-box">
+                <img src="img/album.png" alt="">
+            </div>
+            <div class="play-panel">
+                <div class="song-name"><p>无条件</p></div>
+                <div class="play-time">
+                    <div class="song-cur-time"><p>1:38</p></div>
+                    <div class="noyong">/</div>
+                    <div class="song-all-time"><p>3:38</p></div>
+                </div>
+                <div class="play-time play-bit">
+                    <div class="song-cur-time"><p>24bit</p></div>
+                    <div class="noyong">/</div>
+                    <div class="song-all-time"><p>192kHz</p></div>
+                </div>
+                <ul class="song-list">
+                    <li>01、好久不见《The 1St Eleve..》</li>
+                    <li>02、十年-</li>
+                    <li>03、 稳稳的幸福《稳稳的幸福》</li>
+                    <li>04、 浮夸《U-87》</li>
+                    <li>05、 富士山下《Solidays 新曲+..》</li>
+                    <li>06、 红玫瑰《1997-2007跨..》</li>
+                    <li>07、 爱情转移《1997-2007跨..》</li>
+                    <li>08、 约定</li>
+                    <li>09、 遥远的她</li>
+                </ul>
+            </div>
+        </div>
+        <div class="play-bottom">
+            <div class="play-bottom-left">
+                <div class="play-btn">
+                    <span class="btn prev"></span>
+                    <span class="label play-label">上一碟</span>
+                </div>
+                <div class="play-btn">
+                    <span class="btn pause"></span>
+                    <span class="label play-label">暂停</span>
+                </div>
+                <div class="play-btn">
+                    <span class="btn next"></span>
+                    <span class="label play-label">下一碟</span>
+                </div>
+                <div class="play-btn">
+                    <span class="btn" onclick="window.location.href='split-screen-network.html';">调音设置</span>
+                    <span class="btn btn-back" onclick="window.location.href=document.referrer;">返回</span>
+                </div>
+            </div>
+            <div class="play-bottom-right">
+                <p class="vol-play">Vol</p>
+                <div class="btn-volume">
+                    <span class="addVulume"></span>
+                    <span class="reduceVolume"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="nav">
+        <span class="prev-btn" onclick="window.location.href=document.referrer;"></span>
+        <!--<span class="next-btn"></span>-->
+        <span class="home-btn" onclick="window.location.href='index.html';"></span>
+        <span class="playing" onclick="window.location.href='play.html';"></span>
+    </div>
+</body>
+</html>

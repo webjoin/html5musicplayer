@@ -1,0 +1,226 @@
+@media all and (orientation : portrait){
+    .play-btn {
+        width: 90px;
+        height: 40px;
+        display: inline-block;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        margin-left: 30px;
+        border-radius: 5px;
+    }
+    .vol-play {
+        position: relative;
+        left: 22px;
+        top: 40px;
+        font-size: 25px;
+    }
+    .nav {
+        position: absolute;
+        top: 172px;
+        left: 36px;
+    }
+    .nav-1{
+        position: absolute;
+        top: 318px;
+        left: 47px;
+    }
+    .nav-2{
+        position: absolute;
+        top: 164px;
+        left: 47px;
+    }
+    .play-main-panel-play-menu{
+        padding-top: 50px;
+    }
+    .nav-sd{
+        position: absolute;
+        top: 170px;
+        left: 35px;
+    }
+    .play-box-left{
+        width: 70%;
+        height: 100%;
+        float: left;
+    }
+    .play-main-panel{
+        width: 30%;
+        height: 100%;
+        /*background: green;*/
+        float: left;
+        padding-top: 160px;
+    }
+    .nav .wan{
+        position: absolute;
+        top: 174px;
+        left: 37px;
+    }
+    .c-1{
+        padding-top: 50px;
+    }
+    .c-2{
+        text-align: center;
+        font-size: 20px;
+        width: 50%;
+    }
+    .split-left-btn .btn{
+        width: 50px;
+    }
+    .split-middle-box2 .btn {
+        width: 60px;
+        float: left;
+        margin-left: 19px;
+        margin-bottom: 16px;
+        margin-top: 6px;
+    }
+    .split-right-btn{
+        padding: 22px 0 0 15px;
+    }
+    .label-btn{
+        width: 70px;
+    }
+    .split-middle-box1-left .btn{
+        width: 70px;
+    }
+    .split-middle-box1-middle .btn{
+        width: 70px;
+    }
+    .split-middle-box1-right .btn{
+        width: 70px;
+    }
+    .split-middle-btn .btn3{
+        margin-left: 0;
+    }
+    .mute {
+        width: 100%;
+        margin-top: 250px;
+        margin-left: 20px;
+    }
+    .split-right-volume {
+        position: absolute;
+        width: 70px;
+        top: 370px;
+        right: 33px;
+    }
+    .split-title {
+        width: 100%;
+        text-align: center;
+        margin-top: 260px;
+        font-size: 15px;
+    }
+    .volume-btn {
+        width: 100%;
+        padding-left: 160px;
+    }
+    .volume-left {
+        float: left;
+        width: 33.33333333%;
+        padding-left: 48px;
+    }
+    .volume-right {
+        width: 33.33333333%;
+        float: left;
+        padding-left: 30px;
+    }
+    .sound-manager{
+        font-size: 14px;
+    }
+    .volume-mono {
+        padding-left: 92px;
+    }
+    .sound-manager-btn .btn {
+        width: 72px;
+        margin-left: 10px;
+        font-size: 13px;
+    }
+    .sound-manager-btn .btn1 {
+        margin-left: 3px;
+    }
+    .sound-manager-btn .btn2 {
+        margin-left: 3px;
+    }
+    .sound-manager-on{
+        width: 39px;
+        margin: 20px 3px 0 3px;
+    }
+    .sound-manager-off{
+        width: 39px;
+        margin: 20px 3px 0 3px;
+    }
+    .switch-cc{
+        margin-left: 94px;
+    }
+    .play-main-panel-setting-volume-middle-btn .btn{
+        width: 45px;
+    }
+    .play-main-panel-setting-volume-bottom .btn {
+        margin: 7px 0 0 40px;
+    }
+    .play-box-setting-volume2{
+        width: 80%;
+    }
+    .play-main-panel-setting-volume-2{
+        width: 20%;
+    }
+    .fl-tw i, .fl-mid i, .fl-wf i{
+        right: -86px;
+    }
+    .fr-tw i, .fr-mid i, .fr-wf i{
+        right: -36px;
+    }
+    .fl-tw i, .fl-mid i, .fl-wf i{
+        right: -86px;
+    }
+    .fr-tw-i-p, .fr-mid-i-p, .fr-wf-i-p{
+        right: 7px;
+    }
+    .fl-tw-i-p, .fl-mid-i-p, .fl-wf-i-p{
+        right: -147px;
+    }
+    .fl-tw, .fl-mid, .fl-wf{
+        width: 80px;
+    }
+    .fr-tw, .fr-mid, .fr-wf{
+        width: 80px;
+    }
+    .fr-tw-input, .fr-mid-input, .fr-wf-input{
+        margin-left: 27px;
+    }
+    .volume-right2{
+        padding-left: 0;
+    }
+    .volume-left2{
+        padding-left: 7px;
+    }
+    .sound-manager-btn-2{
+        margin-left: 15px;
+    }
+    .split-right-volume2{
+        top:220px;
+        right: 39px;
+    }
+    .mute2{
+        margin-top: 275px;
+    }
+    .volume-mono2{
+        padding-left: 124px;
+    }
+    body {
+        background: url(../img/bg.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: 200%;
+        font-size: 14px;
+        color: #fff;
+    }
+    .play-main-panel-index{
+        padding-top: 32px;
+    }
+    .play-main-panel-play-bluetooth{
+        padding-top: 50px;
+    }
+    .bluetooth-box{
+        width: 50%;
+    }
+}
