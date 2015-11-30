@@ -1,3 +1,59 @@
+var musicplay={
+		datas:{
+			left:[
+				[ 9, 9, 4, -1, -6, -11],
+				[ -12, -12, -12, -7, -2, 9, 9, 9, -2,-7, -12, -12 ],
+				[ -12, -12, -12, -7, -12, -4, 4, 9, 9,4, -4, -12 ],
+				[ -12, -12, -12, -12, -12, -12, -12,-12, -12, -6, 0.6, 7, 7, 7, 0, 0 ]
+			],
+			right:[
+				[9, 9, 4, -1, -6, -11,],
+				[-12, -4, 4, 9, 9, 4, -4, -12],
+				[-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12],
+				[-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
+			]
+		},
+		operation:{
+			initData:function(){
+				var setup =  musicplay.common.LS.get("setup");//<setup>true</setup>
+				if('true' == setup){
+					musicplay.datas.left  =JSON.parse(musicplay.common.LS.get(musicplay.common.constant.LEFT));
+					musicplay.datas.right =JSON.parse(musicplay.common.LS.get(musicplay.common.constant.RIGHT));
+				}else{//it's not true , so the data was needed initialization
+					musicplay.common.LS.put(musicplay.common.constant.LEFT,JSON.stringify(musicplay.datas.left));
+					musicplay.common.LS.put(musicplay.common.constant.RIGHT,JSON.stringify(musicplay.datas.right));
+					musicplay.common.LS.put(musicplay.common.constant.SETUP,'true');
+				}
+			}
+		},
+		common:{
+			constant:{
+				SETUP:'setup',
+				LEFT:'left',
+				RIGHT:'right'
+
+			},
+			LS:{ //LS对象 localstorage 对象
+				LS:window.localStorage,
+				put:function(key,val){
+					this.LS.setItem(key,val);
+				},
+				get:function(key){
+					return this.LS.getItem(key);
+				},
+				remove:function (key){
+					this.LS.removeItem(key);
+				},
+				removeAll:function(){
+					this.LS.clear();
+				}
+			}
+
+		}
+};
+
+musicplay.operation.initData();
+
 var url = [];
 var host = location.host;
 var port = location.port;
@@ -228,6 +284,134 @@ $(function() {
 //	} ];
 	
 	
+	
+	if($('#container1').get(0) != null){
+		$('#container1').highcharts(
+				{
+					xAxis : {title : {text : '[Hz]'} },
+					yAxis : {
+						title : {text : '[dB]'},
+						plotLines : [ { value : 0, width : 1, color : '#808080' } ]
+					},
+					chart : { fontSize : '14px',fontWeight : 'bold',color : '#fff',backgroundColor : 'rgba(52, 52, 52,0.5)'},
+					credits : {enabled : false},
+					legend : {enabled : false},
+					exporting : {enabled : false},
+					title : {text : ''},
+					subtitle : {text : ''},
+					tooltip : {enabled : false},
+					series : [
+							{
+								name : 'Green',
+								marker : {
+									fillColor : '#BF0B23',
+									lineWidth : 10,
+									radius : 0
+								},
+								// data : [ 9, 9, 4, -1, -6, -11]
+								data : musicplay.datas.left[0]
+							},
+							{
+								name : 'New York',
+								marker : {
+									fillColor : '#BF0B23',
+									width : 0,
+									radius : 0
+								},
+								// data : [ -12, -12, -12, -7, -2, 9, 9, 9, -2,-7, -12, -12 ],
+								data : musicplay.datas.left[1]
+							},
+							{
+								name : 'Berlin',
+								marker : {
+									fillColor : '#BF0B23',
+									width : 0,
+									radius : 0
+								},
+								// data : [ -12, -12, -12, -7, -12, -4, 4, 9, 9,4, -4, -12 ]
+								data : musicplay.datas.left[2]
+							},
+							{
+								name : 'London',
+								marker : {
+									fillColor : '#BF0B23',
+									width : 0,
+									radius : 0
+								},
+								// data : [ -12, -12, -12, -12, -12, -12, -12,-12, -12, -6, 0.6, 7, 7, 7, 0, 0 ]
+								data : musicplay.datas.left[3]
+							} ]
+				});
+
+
+
+		$('#container2').highcharts({
+            xAxis: { title: {text: '[Hz]'}, },
+            yAxis: {
+                title: {text: '[dB]'},
+                plotLines: [{value: 0,width: 1,color: '#808080'}]
+            },
+            chart :{fontSize:'14px',fontWeight:'bold',color:'#fff',backgroundColor:'rgba(52, 52, 52,0.5)'},
+            credits:{enabled:false},
+            legend:{ enabled:false },
+            exporting:{enabled:false},
+            title: {text: ''},
+            subtitle: {text: ''},
+            tooltip:{enabled:false},
+            series: [{
+                name: 'Tokyo',
+                marker: {
+                    fillColor: '#BF0B23',
+                    lineWidth:10,
+                    radius: 0
+                },
+                // data: [9, 9, 4, -1, -6, -11,]
+                data : musicplay.datas.right[0]
+            }, {
+                name: 'New York',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                // data: [-12, -4, 4, 9, 9, 4, -4, -12]
+                data : musicplay.datas.right[1]
+            }, {
+                name: 'Berlin',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                // data: [-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12]
+                data : musicplay.datas.right[2]
+            }, {
+                name: 'London',
+                marker: {
+                    fillColor: '#BF0B23',
+                    width: 0,
+                    radius: 0
+                },
+                // data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
+                data : musicplay.datas.right[3]
+            }]
+        });
+	}
+
+	$(".split-middle-btn > .btn").click(function(){
+		console.log('--');
+		$(".split-middle-btn > .btn").css({'background':'#fff'});
+		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
+	});
+	$('.split-left-btn > .btn').click(function(){
+		console.log('--');
+		$(this).siblings().css({'background':'#343434'});
+		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
+	});
+	/**
+	 * ==================================================Events
+	 * Arae=========================================
+	 */
 	function sendTxt(val){
 		socket.send(val);
 	}

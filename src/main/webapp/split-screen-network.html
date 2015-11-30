@@ -9,90 +9,14 @@
     <script src="js/lib/jquery-2.1.4.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/lib/Chart.js"></script>
+    <script src="js/elijah.js"></script>
     <title>music-player</title>
 </head>
 <script type="text/javascript">
     $(function () {
-        $('#container1').highcharts({
-            xAxis: {
-                title: {
-                    text: '[Hz]'
-                },
-            },
-            yAxis: {
-                title: {
-                    text: '[dB]'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            chart :{
-                    fontSize:'14px',
-                    fontWeight:'bold',
-                    color:'#fff',
-                    backgroundColor:'rgba(52, 52, 52,0.5)'
-                },
-            credits:{
-                enabled:false
-            },
-            legend:{
-                enabled:false
-            },
-            exporting:{
-                enabled:false
-            },
-            title: {
-                text: '',
-            },
-            subtitle: {
-                text: '',
-            },
-            tooltip:{
-                enabled:false
-            },
-            series: [{
-                name: 'Tokyo',
-                marker: {
-                    fillColor: '#BF0B23',
-                    lineWidth:10,
-                    radius: 0
-                },
-                data: [9, 9, 4, -1, -6, -11,]
-            }, {
-                name: 'New York',
-                marker: {
-                    fillColor: '#BF0B23',
-                    width: 0,
-                    radius: 0
-                },
-                data: [-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12],
-            }, {
-                name: 'Berlin',
-                marker: {
-                    fillColor: '#BF0B23',
-                    width: 0,
-                    radius: 0
-                },
-                data: [-12, -12, -12, -7,-12, -4, 4, 9, 9, 4, -4, -12]
-            }, {
-                name: 'London',
-                marker: {
-                    fillColor: '#BF0B23',
-                    width: 0,
-                    radius: 0
-                },
-                data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
-            }]
-        });
-        $('#container2').highcharts({
-            xAxis: {
-                title: {
-                    text: '[Hz]'
-                },
-            },
+        
+        /* $('#container2').highcharts({
+            xAxis: { title: {text: '[Hz]'}, },
             yAxis: {
                 title: {
                     text: '[dB]'
@@ -160,7 +84,7 @@
                 },
                 data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
             }]
-        });
+        }); */
     });
 </script>
 <script src="js/lib/highcharts.js"></script>
