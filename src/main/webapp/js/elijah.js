@@ -11,26 +11,122 @@ var musicplay={
 				[-12, -4, 4, 9, 9, 4, -4, -12],
 				[-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12],
 				[-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
-			]
+			],
+			Subwoofer:{
+				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ"," 50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ","160HZ","180HZ","200HZ"],
+				LP:["220HZ","200HZ","180HZ","160HZ","140HZ","125HZ","110HZ"," 100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ","45HZ"," 40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
+				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
+				Level:["+6db", "+5.5db", "+5db", "+4.5db", "+4db", "+3.5db", "+3db", "+2.5db", "+2db", "+1.5db", "+1db", "+0.5db", "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+				,Phase:[0,180],
+				selectedVals:{
+					HP:"",
+					Slope:"",
+					Level:"",
+					Phase:""
+				}
+			},
+			FrontWF:{
+				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ"," 50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ"," 160HZ","180HZ","200HZ","220HZ","250HZ"," 280HZ","315HZ","360HZ","400HZ","450HZ","500HZ","560HZ"," 630HZ","710HZ","800HZ","900HZ","1K","1.1K"," 1.2K","1.4K","1.6K"," 1.8K","2K","2.2K","2.5K","2.8K","3.2K","3.6K","4K","4.5K"," 5K","5.6K"," 6.3K","7.1K","8K","9K","10K","11K","12.5K","14K","16K","18K"],
+				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K"," 5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K","1K","900HZ","800HZ","710HZ","630HZ","560HZ","500HZ","450HZ","400HZ","360HZ","315HZ","280HZ"," 250HZ","220HZ","200HZ","180HZ"," 160HZ","140HZ","125HZ"," 110HZ","100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ"," 45HZ","40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
+				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
+				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+				,Phase:[0,180],
+				selectedVals:{
+					HP:"",
+					Slope:"",
+					Level:"",
+					Phase:""
+				}
+			},
+			FrontMid:{
+				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ","50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ","160HZ","180HZ","200HZ","220HZ","250HZ","280HZ"," 315HZ","360HZ","400HZ","450HZ","500HZ","560HZ","630HZ","710HZ"," 800HZ","900HZ","1K","1.1K","1.2K","1.4K","1.6K","1.8K","2K","2.2K"," 2.5K","2.8K","3.2K","3.6K","4K","4.5K"," 5K","5.6K","6.3K","7.1K"," 8K","9K","10K","11K","12.5K","14K","16K","18K"],
+				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K"," 5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K","1K","900HZ","800HZ","710HZ","630HZ"," 560HZ","500HZ","450HZ","400HZ","360HZ","315HZ","280HZ","250HZ"," 220HZ","200HZ","180HZ"," 160HZ","140HZ","125HZ","110HZ"," 100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ","45HZ"," 40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
+				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
+				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+				,Phase:[0,180],
+				selectedVals:{
+					HP:"",
+					Slope:"",
+					Level:"",
+					Phase:""
+				}
+			},
+			FrontTW:{
+				HP:["1K","1.1K","1.2K","1.4K","1.6K","1.8K","2K","2.2K","2.5K","2.8K","3.2K","3.6K","4K","4.5K","5K","5.6K","6.3K","7.1K","8K","9K","10K","11K","12.5K","14K","16K","18K"],
+				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K","5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K"],
+				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
+				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+				,Phase:[0,180],
+				selectedVals:{
+					HP:"",
+					Slope:"",
+					Level:"",
+					Phase:""
+				}
+			},
+			userSelectedBtnVal:{
+				lrb:'' // left right both
+				,sfff:''//subwoofer , FrontWF , FrontMid, FrontTW
+				,sffslp:''//slope Frequency Frequency slope Level Phase
+			}
 		},
 		operation:{
 			initData:function(){
 				var setup =  musicplay.common.LS.get("setup");//<setup>true</setup>
-				if('true' == setup){
-					musicplay.datas.left  =JSON.parse(musicplay.common.LS.get(musicplay.common.constant.LEFT));
-					musicplay.datas.right =JSON.parse(musicplay.common.LS.get(musicplay.common.constant.RIGHT));
-				}else{//it's not true , so the data was needed initialization
+				if('true' != setup){
+					//it's not true , so the data was needed initialization
 					musicplay.common.LS.put(musicplay.common.constant.LEFT,JSON.stringify(musicplay.datas.left));
 					musicplay.common.LS.put(musicplay.common.constant.RIGHT,JSON.stringify(musicplay.datas.right));
+					//--
+					musicplay.common.LS.put(musicplay.common.constant.SUBWOOFER,JSON.stringify(musicplay.datas.Subwoofer));
+					musicplay.common.LS.put(musicplay.common.constant.FRONTWF,JSON.stringify(musicplay.datas.FrontWF));
+					musicplay.common.LS.put(musicplay.common.constant.FRONTMID,JSON.stringify(musicplay.datas.FrontMid));
+					musicplay.common.LS.put(musicplay.common.constant.FRONTTW,JSON.stringify(musicplay.datas.FrontTW));
 					musicplay.common.LS.put(musicplay.common.constant.SETUP,'true');
 				}
+
+				// left1 means copy of left data
+				musicplay.datas.left1		=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.LEFT));
+				musicplay.datas.right1		=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.RIGHT));
+				//data
+				musicplay.datas.Subwoofer1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.SUBWOOFER));
+				musicplay.datas.FrontWF1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTWF));
+				musicplay.datas.FrontMid1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTMID));
+				musicplay.datas.FrontTW1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTTW));
 			}
+			,
+			addVulume:function(){
+				// 1. left or right
+				// 2. subwoofer , FrontWF , FrontMid, FrontTW
+				// 只有frequency采区别 左右吗？ slope不区分，那选择左边和右边的slope就没有什么区别了。
+				var val = musicplay.datas.userSelectedBtnVal;
+				if(val.lrb == '' || val.sfff == '' || val.sffslp == ''){  // this is a validation
+					//
+					return false ;
+				}
+				// to do something
+				//
+			},
+			reduceVolume:function(){
+				var val = musicplay.datas.userSelectedBtnVal;
+				if(val.lrb == '' || val.sfff == '' || val.sffslp == ''){  // this is a validation
+					//
+					return false ;
+				}
+				// to do something
+
+			}
+
 		},
 		common:{
 			constant:{
 				SETUP:'setup',
 				LEFT:'left',
-				RIGHT:'right'
+				RIGHT:'right',
+				SUBWOOFER:"Subwoofer",
+				FRONTWF:"FrontWF",
+				FRONTMID:"FrontMid",
+				FRONTTW:"FrontTW"
 
 			},
 			LS:{ //LS对象 localstorage 对象
@@ -407,6 +503,26 @@ $(function() {
 		console.log('--');
 		$(this).siblings().css({'background':'#343434'});
 		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
+	});
+
+	$(".split-right-btn > .btn").click(function(){
+		//
+		if($(this).text() == 'Return') return ;
+		
+		$(this).siblings().css({'background':'#343434'});
+		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
+	});
+	// this is to compute 
+	$('.wan-volume split-right-volume > span').click(function(){
+		//
+		if($(this).attr('class') == 'addVulume'){  //addVulume
+
+			musicplay.operation.addVulume();
+			//
+		}else{ //reduceVolume
+			//
+			musicplay.operation.reduceVolume();
+		}
 	});
 	/**
 	 * ==================================================Events
