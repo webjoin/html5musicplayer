@@ -1,68 +1,58 @@
 var musicplay={
 		datas:{
 			left:[
-				[ 9, 9, 4, -1, -6, -11],
-				[ -12, -12, -12, -7, -2, 9, 9, 9, -2,-7, -12, -12 ],
-				[ -12, -12, -12, -7, -12, -4, 4, 9, 9,4, -4, -12 ],
-				[ -12, -12, -12, -12, -12, -12, -12,-12, -12, -6, 0.6, 7, 7, 7, 0, 0 ]
+				[ [0, -12], 	 [20*5, 0], 	[40, 	0],				[50, -12]],			//重地			*5
+				[ [100, -12],  	 [200, 0], 	[300, 	0],		[400, -12]],					//低				*5
+				[ [800, -12],  	 [1000, 0], [1400, 	0],		[2000, -12]],					//中				*2
+				[ [3200, -12],	 [3500, 0], [5000, 	0],		[20000, -12] ]					//高				*2
 			],
 			right:[
-				[9, 9, 4, -1, -6, -11,],
-				[-12, -4, 4, 9, 9, 4, -4, -12],
-				[-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12],
-				[-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
+				[ [0, -12], 	 [20, 0], 	[40, 	0],			[50, -12]],
+				[ [100, -12],  	 [200, 0], 	[300, 	0],			[400, -12]],
+				[ [800, -12],  	 [1000, 0], [1400, 	0],			[2000, -12]],
+				[ [3200, -12],	 [3500, 0], [5000, 	0],			[20000, -12] ]
 			],
-			Subwoofer:{
-				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ"," 50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ","160HZ","180HZ","200HZ"],
-				LP:["220HZ","200HZ","180HZ","160HZ","140HZ","125HZ","110HZ"," 100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ","45HZ"," 40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
-				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
-				Level:["+6db", "+5.5db", "+5db", "+4.5db", "+4db", "+3.5db", "+3db", "+2.5db", "+2db", "+1.5db", "+1db", "+0.5db", "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+			FrontTW:{
+				HP:[1,1.1,1.2,1.4,1.6,1.8,2,2.2,2.5,2.8,3.2,3.6,4,4.5,5,5.6,6.3,7.1,8,9,10,11,12.5,14,16,18],
+				LP:[20,18,16,14,12.5,11,10,9,8,7.1,6.3,5.6,5,4.5,4,3.6,3.2,2.8,2.5,2.2,2,1.8, 1.6,1.4,1.2,1.1],
+				Slope:[-6,-12,-18,-24,-30,-36],
+				Level:[ +0, -0.5, -1, -1.5, -2, -2.5, -3, -3.5, -4, -4.5, -5, -5.5, -6, -6.5, -7, -7.5, -8, -8.5, -9, -9.5, -10, -10.5, -11, -11.5, -12, -12.5, -13, -13.5, -14, -14.5, -15, -15.5, -16, -16.5, -17, -17.5, -18]//,0.5/步。(默认 0.0)
 				,Phase:[0,180],
-				selectedVals:{
-					HP:"",
-					Slope:"",
-					Level:"",
-					Phase:""
-				}
-			},
-			FrontWF:{
-				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ"," 50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ"," 160HZ","180HZ","200HZ","220HZ","250HZ"," 280HZ","315HZ","360HZ","400HZ","450HZ","500HZ","560HZ"," 630HZ","710HZ","800HZ","900HZ","1K","1.1K"," 1.2K","1.4K","1.6K"," 1.8K","2K","2.2K","2.5K","2.8K","3.2K","3.6K","4K","4.5K"," 5K","5.6K"," 6.3K","7.1K","8K","9K","10K","11K","12.5K","14K","16K","18K"],
-				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K"," 5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K","1K","900HZ","800HZ","710HZ","630HZ","560HZ","500HZ","450HZ","400HZ","360HZ","315HZ","280HZ"," 250HZ","220HZ","200HZ","180HZ"," 160HZ","140HZ","125HZ"," 110HZ","100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ"," 45HZ","40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
-				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
-				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
-				,Phase:[0,180],
-				selectedVals:{
-					HP:"",
-					Slope:"",
-					Level:"",
-					Phase:""
-				}
+				selectedValsL:{Slope1:-12,HP:3200,LP:20000,Slope2:-12,Level:0,Phase:0}, //*2
+				selectedValsR:{Slope1:-12,HP:3200,LP:20000,Slope2:-12,Level:0,Phase:0}
+
 			},
 			FrontMid:{
-				HP:["20HZ","22HZ","25HZ","28HZ","31.5HZ","36HZ","40HZ","45HZ","50HZ","56HZ","63HZ","71HZ","80HZ","90HZ","100HZ","110HZ"," 125HZ","140HZ","160HZ","180HZ","200HZ","220HZ","250HZ","280HZ"," 315HZ","360HZ","400HZ","450HZ","500HZ","560HZ","630HZ","710HZ"," 800HZ","900HZ","1K","1.1K","1.2K","1.4K","1.6K","1.8K","2K","2.2K"," 2.5K","2.8K","3.2K","3.6K","4K","4.5K"," 5K","5.6K","6.3K","7.1K"," 8K","9K","10K","11K","12.5K","14K","16K","18K"],
-				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K"," 5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K","1K","900HZ","800HZ","710HZ","630HZ"," 560HZ","500HZ","450HZ","400HZ","360HZ","315HZ","280HZ","250HZ"," 220HZ","200HZ","180HZ"," 160HZ","140HZ","125HZ","110HZ"," 100HZ","90HZ","80HZ","71HZ","63HZ","56HZ","50HZ","45HZ"," 40HZ","36HZ","31.5HZ","28HZ","25HZ","22HZ"],
-				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
-				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+				HP:[20,22,25,28,31.5,36,40,45,50,56,63,71,80,90,100,110, 125,140,160,180,200,220,250,280, 315,360,400,450,500,560,630,710, 800,900,1,1.1,1.2,1.4,1.6,1.8,2,2.2, 2.5,2.8,3.2,3.6,4,4.5, 5,5.6,6.3,7.1, 8,9,10,11,12.5,14,16,18],
+				LP:[20,18,16,14,12.5,11,10,9,8,7.1,6.3, 5.6,5,4.5,4,3.6,3.2,2.8,2.5,2.2,2,1.8, 1.6,1.4,1.2,1.1,1,900,800,710,630, 560,500,450,400,360,315,280,250, 220,200,180, 160,140,125,110, 100,90,80,71,63,56,50,45, 40,36,31.5,28,25,22],
+				Slope:[-6,-12,-18,-24,-30,-36],
+				Level:[ +0, -0.5, -1, -1.5, -2, -2.5, -3, -3.5, -4, -4.5, -5, -5.5, -6, -6.5, -7, -7.5, -8, -8.5, -9, -9.5, -10, -10.5, -11, -11.5, -12, -12.5, -13, -13.5, -14, -14.5, -15, -15.5, -16, -16.5, -17, -17.5, -18]//,0.5/步。(默认 0.0)
 				,Phase:[0,180],
-				selectedVals:{
-					HP:"",
-					Slope:"",
-					Level:"",
-					Phase:""
-				}
+				selectedValsL:{Slope1:-12,HP:800,LP:2000,Slope2:-12,Level:0,Phase:0},//*2
+				selectedValsR:{Slope1:-12,HP:800,LP:2000,Slope2:-12,Level:0,Phase:0}
 			},
-			FrontTW:{
-				HP:["1K","1.1K","1.2K","1.4K","1.6K","1.8K","2K","2.2K","2.5K","2.8K","3.2K","3.6K","4K","4.5K","5K","5.6K","6.3K","7.1K","8K","9K","10K","11K","12.5K","14K","16K","18K"],
-				LP:["20K","18K","16K","14K","12.5K","11K","10K","9K","8K","7.1K","6.3K","5.6K","5K","4.5K","4K","3.6K","3.2K","2.8K","2.5K","2.2K","2K","1.8K"," 1.6K","1.4K","1.2K","1.1K"],
-				Slope:["-6db","-12db","-18db","-24db","-30db","-36db"],
-				Level:[ "+0db", "-0.5db", "-1db", "-1.5db", "-2db", "-2.5db", "-3db", "-3.5db", "-4db", "-4.5db", "-5db", "-5.5db", "-6db", "-6.5db", "-7db", "-7.5db", "-8db", "-8.5db", "-9db", "-9.5db", "-10db", "-10.5db", "-11db", "-11.5db", "-12db", "-12.5db", "-13db", "-13.5db", "-14db", "-14.5db", "-15db", "-15.5db", "-16db", "-16.5db", "-17db", "-17.5db", "-18db"]//,0.5db/步。(默认 0.0db)
+			FrontWF:{
+				HP:[20,22,25,28,31.5,36,40,45, 50,56,63,71,80,90,100,110, 125,140, 160,180,200,220,250, 280,315,360,400,450,500,560, 630,710,800,900,1,1.1, 1.2,1.4,1.6, 1.8,2,2.2,2.5,2.8,3.2,3.6,4,4.5, 5,5.6, 6.3,7.1,8,9,10,11,12.5,14,16,18],
+				LP:[20,18,16,14,12.5,11,10,9,8,7.1,6.3, 5.6,5,4.5,4,3.6,3.2,2.8,2.5,2.2,2,1.8, 1.6,1.4,1.2,1.1,1,900,800,710,630,560,500,450,400,360,315,280, 250,220,200,180, 160,140,125, 110,100,90,80,71,63,56,50, 45,40,36,31.5,28,25,22],
+				Slope:[-6,-12,-18,-24,-30,-36],
+				Level:[ +0, -0.5, -1, -1.5, -2, -2.5, -3, -3.5, -4, -4.5, -5, -5.5, -6, -6.5, -7, -7.5, -8, -8.5, -9, -9.5, -10, -10.5, -11, -11.5, -12, -12.5, -13, -13.5, -14, -14.5, -15, -15.5, -16, -16.5, -17, -17.5, -18]//,0.5/步。(默认 0.0)
 				,Phase:[0,180],
-				selectedVals:{
-					HP:"",
-					Slope:"",
-					Level:"",
-					Phase:""
-				}
+				selectedValsL:{Slope1:-12,HP:100,LP:400,Slope2:-12,Level:0,Phase:0},//*5
+				selectedValsR:{Slope1:-12,HP:100,LP:400,Slope2:-12,Level:0,Phase:0}
+			},
+			Subwoofer:{
+				//HZ
+				HP:[20,22,25,28,31.5,36,40,45, 50,56,63,71,80,90,100,110, 125,140,160,180,200],
+				//HZ K
+				LP:[220,200,180,160,140,125,110, 100,90,80,71,63,56,50,45, 40,36,31.5,28,25,22],
+				//db
+				Slope:[-6,-12,-18,-24,-30,-36],
+				//db
+				Level:[+6, +5.5, +5, +4.5, +4, +3.5, +3, +2.5, +2, +1.5, +1, +0.5, +0, -0.5, -1, -1.5, -2, -2.5, -3, -3.5, -4, -4.5, -5, -5.5, -6, -6.5, -7, -7.5, -8, -8.5, -9, -9.5, -10, -10.5, -11, -11.5, -12, -12.5, -13, -13.5, -14, -14.5, -15, -15.5, -16, -16.5, -17, -17.5, -18]//,0.5/步。(默认 0.0)
+				,
+				Phase:[0,180],
+				selectedValsL:{Slope1:-12,HP:0,LP:50,Slope2:-12,Level:0,Phase:0},//*5
+				selectedValsR:{Slope1:-12,HP:0,LP:50,Slope2:-12,Level:0,Phase:0}
 			},
 			userSelectedBtnVal:{
 				lrb:'' // left right both
@@ -93,6 +83,30 @@ var musicplay={
 				musicplay.datas.FrontWF1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTWF));
 				musicplay.datas.FrontMid1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTMID));
 				musicplay.datas.FrontTW1	=JSON.parse(musicplay.common.LS.get(musicplay.common.constant.FRONTTW));
+				//selectedValsL:{Slope1:-12,HP:100,LP:400,Slope2:-12,Level:0,Phase:0},//*5
+				/*
+
+				[ [0, -12], 	 [20*5, 0], 	[40, 	0],				[50, -12]],			//重地			*5
+				[ [100, -12],  	 [200, 0], 	[300, 	0],		[400, -12]],					//低				*5
+				[ [800, -12],  	 [1000, 0], [1400, 	0],		[2000, -12]],					//中				*2
+				[ [3200, -12],	 [3500, 0], [5000, 	0],		[20000, -12] ]					//高				*2
+				*/
+				var Subwoofer1 = musicplay.datas.Subwoofer1 ;
+				var FrontWF1   = musicplay.datas.FrontWF1   ;
+				var FrontMid1 = musicplay.datas.FrontMid1;
+				var FrontTW1 = musicplay.datas.FrontTW1;
+
+				musicplay.datas.left1[0] = [[Subwoofer1.selectedValsL.HP*5, Subwoofer1.selectedValsL.Slope1],[20*5, 0],[40*5,0],	[Subwoofer1.selectedValsL.LP*5, Subwoofer1.selectedValsL.Slope2]];
+				musicplay.datas.left1[1] =  [[FrontWF1.selectedValsL.HP*5, FrontWF1.selectedValsL.Slope1],[200*5, 0],[300*5,0],	[FrontWF1.selectedValsL.LP*5, FrontWF1.selectedValsL.Slope2]];
+				musicplay.datas.left1[2] =[[FrontMid1.selectedValsL.HP*2, FrontMid1.selectedValsL.Slope1],[1000*2, 0],[1400*2,0],	[FrontMid1.selectedValsL.LP*2, FrontMid1.selectedValsL.Slope2]];
+				musicplay.datas.left1[3] =[[FrontTW1.selectedValsL.HP*2, FrontTW1.selectedValsL.Slope1],[3500*2, 0],[5000*2,0],	[FrontTW1.selectedValsL.LP, FrontTW1.selectedValsL.Slope2]];
+
+				musicplay.datas.right1[0] = [[Subwoofer1.selectedValsR.HP*5, Subwoofer1.selectedValsR.Slope1],[20*5, 0],[40*5,0],	[Subwoofer1.selectedValsR.LP*5, Subwoofer1.selectedValsR.Slope2]];
+				musicplay.datas.right1[1] =  [[FrontWF1.selectedValsR.HP*5, FrontWF1.selectedValsR.Slope1],[200*5, 0],[300*5,0],	[FrontWF1.selectedValsR.LP*5, FrontWF1.selectedValsR.Slope2]];
+				musicplay.datas.right1[2] =[[FrontMid1.selectedValsR.HP*2, FrontMid1.selectedValsR.Slope1],[1000*2, 0],[1400*2,0],	[FrontMid1.selectedValsR.LP*2, FrontMid1.selectedValsR.Slope2]];
+				musicplay.datas.right1[3] =[[FrontTW1.selectedValsR.HP*2, FrontTW1.selectedValsR.Slope1],[3500*2, 0],[5000*2,0],	[FrontTW1.selectedValsR.LP, FrontTW1.selectedValsR.Slope2]];
+
+
 			}
 			,
 			addVulume:function(){
@@ -384,9 +398,13 @@ $(function() {
 	if($('#container1').get(0) != null){
 		$('#container1').highcharts(
 				{
-					xAxis : {title : {text : '[Hz]'} },
+					xAxis : {title : {text : '[Hz]'} 
+						// ,categories: [0, 1, '10k', '20k', '50k']
+						,tickInterval: 10000
+					},
 					yAxis : {
 						title : {text : '[dB]'},
+						tickInterval: 5,
 						plotLines : [ { value : 0, width : 1, color : '#808080' } ]
 					},
 					chart : { fontSize : '14px',fontWeight : 'bold',color : '#fff',backgroundColor : 'rgba(52, 52, 52,0.5)'},
@@ -397,6 +415,7 @@ $(function() {
 					subtitle : {text : ''},
 					tooltip : {enabled : false},
 					series : [
+							//pointStart: 10
 							{
 								name : 'Green',
 								marker : {
@@ -405,7 +424,8 @@ $(function() {
 									radius : 0
 								},
 								// data : [ 9, 9, 4, -1, -6, -11]
-								data : musicplay.datas.left[0]
+								// data :[  null,null,null,null,null,null,null,null,[25.3, -30], [30, 0],[41, 0], [50, -20] ]
+								data : musicplay.datas.left1[0]
 							},
 							{
 								name : 'New York',
@@ -415,7 +435,8 @@ $(function() {
 									radius : 0
 								},
 								// data : [ -12, -12, -12, -7, -2, 9, 9, 9, -2,-7, -12, -12 ],
-								data : musicplay.datas.left[1]
+
+								data : musicplay.datas.left1[1]
 							},
 							{
 								name : 'Berlin',
@@ -425,7 +446,7 @@ $(function() {
 									radius : 0
 								},
 								// data : [ -12, -12, -12, -7, -12, -4, 4, 9, 9,4, -4, -12 ]
-								data : musicplay.datas.left[2]
+								data : musicplay.datas.left1[2]
 							},
 							{
 								name : 'London',
@@ -435,14 +456,14 @@ $(function() {
 									radius : 0
 								},
 								// data : [ -12, -12, -12, -12, -12, -12, -12,-12, -12, -6, 0.6, 7, 7, 7, 0, 0 ]
-								data : musicplay.datas.left[3]
+								data : musicplay.datas.left1[3]
 							} ]
 				});
 
 
 
 		$('#container2').highcharts({
-            xAxis: { title: {text: '[Hz]'}, },
+            xAxis: { title: {text: '[Hz]'}	,tickInterval: 10000},
             yAxis: {
                 title: {text: '[dB]'},
                 plotLines: [{value: 0,width: 1,color: '#808080'}]
@@ -462,7 +483,7 @@ $(function() {
                     radius: 0
                 },
                 // data: [9, 9, 4, -1, -6, -11,]
-                data : musicplay.datas.right[0]
+                data : musicplay.datas.right1[0]
             }, {
                 name: 'New York',
                 marker: {
@@ -471,7 +492,7 @@ $(function() {
                     radius: 0
                 },
                 // data: [-12, -4, 4, 9, 9, 4, -4, -12]
-                data : musicplay.datas.right[1]
+                data : musicplay.datas.right1[1]
             }, {
                 name: 'Berlin',
                 marker: {
@@ -480,7 +501,7 @@ $(function() {
                     radius: 0
                 },
                 // data: [-12, -12, -12, -7, -2, 9, 9, 9, -2, -7, -12, -12]
-                data : musicplay.datas.right[2]
+                data : musicplay.datas.right1[2]
             }, {
                 name: 'London',
                 marker: {
@@ -489,28 +510,39 @@ $(function() {
                     radius: 0
                 },
                 // data: [-12, -12, -12,-12, -12, -12,-12, -12, -12,-6, 0.6,7,7,7,0,0]
-                data : musicplay.datas.right[3]
+                data : musicplay.datas.right1[3]
             }]
         });
 	}
 
-	$(".split-middle-btn > .btn").click(function(){
-		console.log('--');
+	$(".split-middle-btn > .btn").click(function(){  //调具体的值
+		var val  = $(this).siblings().text();
+		musicplay.datas.userSelectedBtnVal.sffslp = val ;
+		console.log("You clicked on the "+val+" button.");
 		$(".split-middle-btn > .btn").css({'background':'#fff'});
 		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
 	});
-	$('.split-left-btn > .btn').click(function(){
-		console.log('--');
+	$('.split-left-btn > .btn').click(function(){  // click on the LEFT RIGHT BOTH
+		var val = $(this).text();
+
+		musicplay.datas.userSelectedBtnVal.lrb = val;  // selected
+		console.log("You clicked on the "+val+" button.");
 		$(this).siblings().css({'background':'#343434'});
 		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
 	});
 
-	$(".split-right-btn > .btn").click(function(){
-		//
-		if($(this).text() == 'Return') return ;
-		
+	$(".split-right-btn > .btn").click(function(){   // 重低音
+		// this function is very hard .
+		var val = $(this).text() ;
+		console.log("You clicked on the "+val+" button.");
+		if( val == 'Return') return ;
+		musicplay.datas.userSelectedBtnVal.sfff = val;  // selected
 		$(this).siblings().css({'background':'#343434'});
 		$(this).css('background','-webkit-gradient(linear, 0 0, 10% 100%, from(rgba(192, 220, 255, 0.4)), to(rgba(22, 99, 197, 0.72)))');
+		// TODO do something
+		// 1. 去LS数据赋值给 .split-middle-btn > .btn  对应的频度。
+		//
+
 	});
 	// this is to compute 
 	$('.wan-volume split-right-volume > span').click(function(){

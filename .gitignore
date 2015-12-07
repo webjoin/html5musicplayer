@@ -17,3 +17,7 @@
 .settings/org.eclipse.m2e.core.prefs
 
 .settings/org.eclipse.wst.common.project.facet.core.xml
+
+src/main/webapp/doc/html5-music-player.zip
+
+src/main/webapp/doc/html5-music-player/*
